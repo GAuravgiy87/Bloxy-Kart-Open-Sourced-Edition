@@ -60,4 +60,8 @@ You’ll use these in the next step.
 2. Find these lines:
    ```lua
    Lobby = 0,
+replace
+   Lobby = 1234567890,
+RaceGame = 9876543210
+
    RaceGame = 0
