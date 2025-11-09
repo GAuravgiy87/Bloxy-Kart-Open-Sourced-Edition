@@ -60,8 +60,36 @@ You’ll use these in the next step.
 2. Find these lines:
    ```lua
    Lobby = 0,
-replace
-   Lobby = 1234567890,
-RaceGame = 9876543210
-
    RaceGame = 0
+
+
+
+3. Replace the zeros with your actual Place IDs:
+   Lobby = 1234567890,
+   RaceGame = 9876543210
+
+4. Do this in both the Lobby and Race Engine projects.
+
+   💾 7. Save and Publish
+
+Save your changes in both files.
+
+Click File → Publish to Roblox for each project.
+
+✅ That’s it! Your Bloxy Kart system is now linked and ready.
+
+
+   🎮 8. Enjoy the Ride!
+
+You’ve successfully linked the Lobby and Race Engine!
+Invite your friends, customize your tracks, and race like a pro 🏆
+
+<p align="center"> <img src="https://media.giphy.com/media/3ohhwJL0G6Qx3xM2l6/giphy.gif" width="70%" alt="Racing Animation"/> </p>
+
+
+🧱 Credits
+
+👨‍💻 Developer: Gaurav Chauhan (VenomVolt)
+🛠️ Built With: Roblox Studio + Lua
+📦 Repository: github.com/venomvolt/bloxy-kart
+
