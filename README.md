@@ -1,95 +1,70 @@
-<!-- BLOXY KART README -->
-<h1 align="center">🏎️ Bloxy Kart — Publishing Guide</h1>
+# 🏎️ Bloxy Kart — Publishing Guide
+**Developer:** Gaurav Chauhan (VenomVolt)  
+**Built with:** Roblox Studio + Lua
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Game%20Engine-Roblox%20Studio-blue?style=for-the-badge&logo=roblox" />
-  <img src="https://img.shields.io/badge/Language-Lua-orange?style=for-the-badge&logo=lua" />
-  <img src="https://img.shields.io/badge/Developer-Gaurav%20Chauhan%20(VenomVolt)-purple?style=for-the-badge" />
-</p>
+![Bloxy Kart Banner](https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif)
 
 ---
 
-<p align="center">
-  <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif" width="80%" alt="Bloxy Kart Animation"/>
-</p>
-
-> 🏁 **Bloxy Kart** is a high-speed Roblox racing experience — built with passion, code, and caffeine ☕.  
-> Follow this guide to **publish and link your Lobby and Race Engine** the right way!
+## Quick Badges
+![Roblox Studio](https://img.shields.io/badge/Game%20Engine-Roblox%20Studio-blue?style=for-the-badge&logo=roblox)
+![Lua](https://img.shields.io/badge/Language-Lua-orange?style=for-the-badge&logo=lua)
 
 ---
 
-## ⚙️ Step-by-Step Publishing Guide
+## Step-by-step Publishing Guide (1 → 9, continuous)
 
-### 🏁 1. Open the Lobby  
-- Open your **Lobby** file in Roblox Studio.  
-- This is your **main entry point** — the central hub where players gather before the race.
+1. **Open the Lobby**  
+   - Launch **Roblox Studio** and open your **Lobby** file.  
+   - This is the main hub where players gather before a race.
+
+2. **Publish the Lobby as a Separate Universe**  
+   - In Roblox Studio: **File → Publish to Roblox As...**  
+   - Create a **new Game Universe** for the Lobby.  
+   - The Lobby must be its own universe because the Race Engine will be a sub-place inside it.
+
+3. **Open the Race Engine**  
+   - Open your **Race Engine** project/file.  
+   - This contains racing logic: checkpoints, vehicles, lap detection, etc.
+
+4. **Publish the Race Engine inside the Lobby Universe**  
+   - Publish the Race Engine as a **new Place** under the Lobby’s universe (so the Lobby can teleport players into it).
+   - Conceptually: **Lobby → Race Engine** (Lobby is the parent universe; Race is a place inside it).
+
+5. **Get the Place IDs**  
+   - After publishing both, copy the two Place IDs:  
+     - **Lobby Place ID**  
+     - **Race Engine Place ID**
+
+6. **Configure `BloxyKartService` and finalize (continued steps 7, 8, 9 are part of this flow)**  
+   - Inside **ReplicatedStorage**, open the `ModuleScript` named `BloxyKartService`.  
+   - Find this code block:
+     ```lua
+     Lobby = 0,
+     RaceGame = 0
+     ```
+   - Replace the `0` values with your **actual Place IDs**, for example:
+     ```lua
+     Lobby = 1234567890,
+     RaceGame = 9876543210
+     ```
+   - **Make this change in both the Lobby project and the Race Engine project** so both know each other's IDs.
+   - **7. Save & Publish:**  
+     - Save the changes in both projects (Lobby and Race Engine).  
+     - In each project: **File → Publish to Roblox**.  
+     - ✅ Now the Lobby and Race Engine are linked and live.
+   - **8. Test & Enjoy the Ride:**  
+     - Open the Lobby in Roblox (play/test) and verify it teleports to the Race Engine as expected.  
+     - Invite friends and run a few test races. Adjust spawn points, checkpoints, or kart settings if needed.  
+   - **9. Credits & Next Steps:**  
+     - Developer: **Gaurav Chauhan (VenomVolt)**  
+     - Repo: `github.com/GAuravgiy87/Bloxy-Kart-Open-Sourced-Edition` (replace with your real repo link if different)  
+     - Pro tips: add tracks, particles, custom karts, a leaderboard, and extra game modes. Consider packaging screenshots in `images/` and linking them below.
 
 ---
 
-### 🌐 2. Publish the Lobby as a Separate Universe  
-- Go to **File → Publish to Roblox As...**  
-- Create a **new game universe** for the Lobby.  
-> 💡 The Lobby must be its own game universe because your Race Engine will be a sub-place inside it.
-
----
-
-### 🧠 3. Open the Race Engine  
-- Next, open your **Race Engine** file.  
-- This contains the racing logic, checkpoints, vehicles, and race flow.
-
----
-
-### 🔗 4. Publish the Race Engine Inside the Lobby  
-- Publish this as a **new Place inside your Lobby’s universe**.  
-> 🎯 Think of it like a portal: Lobby → Race Engine.
-
----
-
-### 🆔 5. Get the Place IDs  
-After both are published, copy:
-- 🪪 **Lobby Place ID**
-- 🪪 **Race Engine Place ID**
-
-You’ll use these in the next step.
-
----
-
-### 🧩 6. Configure `BloxyKartService`
-1. Inside **ReplicatedStorage**, open the file:  
-   `ModuleScript → BloxyKartService`
-2. Find these lines:
-   ```lua
-   Lobby = 0,
-   RaceGame = 0
-
-
-
-3. Replace the zeros with your actual Place IDs:
-   Lobby = 1234567890,
-   RaceGame = 9876543210
-
-4. Do this in both the Lobby and Race Engine projects.
-
-   💾 7. Save and Publish
-
-Save your changes in both files.
-
-Click File → Publish to Roblox for each project.
-
-✅ That’s it! Your Bloxy Kart system is now linked and ready.
-
-
-   🎮 8. Enjoy the Ride!
-
-You’ve successfully linked the Lobby and Race Engine!
-Invite your friends, customize your tracks, and race like a pro 🏆
-
-<p align="center"> <img src="https://media.giphy.com/media/3ohhwJL0G6Qx3xM2l6/giphy.gif" width="70%" alt="Racing Animation"/> </p>
-
-
-🧱 Credits
-
-👨‍💻 Developer: Gaurav Chauhan (VenomVolt)
-🛠️ Built With: Roblox Studio + Lua
-📦 Repository: github.com/venomvolt/bloxy-kart
-
+## Optional: Screenshots (add images/ folder to repo)
+```markdown
+![Bloxy Kart Lobby](images/lobby.png)
+![Bloxy Kart Race Engine](images/race.png)
+![Bloxy Kart Gameplay](images/gameplay.png)
